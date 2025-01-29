@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+  <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8" />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Autoservis Katanović - pružamo sve vrste popravaka i održavanja za osobna i gospodarska vozila u Finčevcu, općina Sveti Petar Orehovec."
+    />
+    <meta
+      name="keywords"
+      content="Autoservis, Katanović, Finčevec, popravci, održavanje, automehanika, autoelektrika, dijagnostika, servis klima uređaja, vulkanizacija"
+    />
+    <meta name="author" content="Autoservis Katanović" />
+    <title>Autoservis Katanović</title>
+
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <!--[if IE]>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <![endif]-->
+    <meta name="description" content="" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/font-awesome.css" />
+    <link rel="stylesheet" href="css/main.css" class="color-switcher-link" />
+    <link rel="stylesheet" href="css/cleaned.css" class="color-switcher-link" />
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+
+    <!--[if lt IE 9]>
+      <script src="js/vendor/html5shiv.min.js"></script>
+      <script src="js/vendor/respond.min.js"></script>
+      <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <!--[if lt IE 9]>
+      <div class="bg-danger text-center">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/" class="color-main"
+          >upgrade your browser</a
+        >
+        to improve your experience.
+      </div>
+    <![endif]-->
+
+    <div class="preloader">
+      <div class="preloader_image"></div>
+    </div>
+
+    <!-- Unyson messages modal -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="messages_modal">
+      <div class="fw-messages-wrap ls p-normal">
+        <!-- Uncomment this UL with LI to show messages in modal popup to your user: -->
+        <!--
+		<ul class="list-unstyled">
+			<li>Message To User</li>
+		</ul>
+		-->
+      </div>
+    </div>
+
+    <!-- wrappers for visual page editor and boxed version of template -->
+    <div id="canvas">
+      <div id="box_wrapper">
+        <!-- template sections -->
+
+        <div class="header_absolute s-parallax ds bs s-overlay">
+          <!--topline section visible only on small screens|-->
+          <section class="page_toplogo ds s-overlay s-pt-10 s-pb-5 s-py-lg-30">
+            <div class="container">
+              <div class="row align-items-center">
+                <div class="col-lg-12">
+                  <div
+                    class="d-lg-flex justify-content-lg-end align-items-lg-center"
+                  >
+                    <div class="mr-auto">
+                      <!--
+							if you want to display toplogo info on smaller screens
+							than use following CSS classes below:
+						 	d-sm-flex justify-content-sm-center
+						 -->
+                      <div
+                        class="d-none d-lg-flex justify-content-center justify-content-lg-start"
+                      >
+                        <a href="index.html" class="logo">
+                          <img
+                            src="images/logo.png"
+                            alt="Autoservis Katanović Logo"
+                          />
+                          <span class="logo-text fw-500">
+                            Autoservis<span class="fw-200">Katanović</span>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+                    <!--
+						if you want to display toplogo info on smaller screens
+						than use following CSS classes below:
+						d-sm-flex justify-lg-content-end justify-content-sm-between align-items-center
+					-->
+                    <div
+                      class="d-flex justify-lg-content-end align-items-center meta-icons"
+                    >
+                      <div
+                        class="media"
+                        onclick="window.location.href='mailto:autoserviskatanovic@gmail.com';"
+                        style="cursor: pointer"
+                      >
+                        <div class="icon-styled color-main fs-20">
+                          <i class="ico-email"></i>
+                        </div>
+                        <div class="media-body">
+                          <h6>Email</h6>
+                          <p class="fw-400 font">
+                            autoserviskatanovic@gmail.com
+                          </p>
+                        </div>
+                      </div>
+
+                      <div
+                        class="media"
+                        onclick="window.location.href='tel:+385958427667';"
+                        style="cursor: pointer"
+                      >
+                        <div class="icon-styled color-main fs-20">
+                          <i class="ico-phone-call"></i>
+                        </div>
+                        <div class="media-body">
+                          <h6>Telefon</h6>
+                          <p class="fw-400">+385 95 842 7667</p>
+                        </div>
+                      </div>
+                      <div class="d-none d-xl-block">
+                        <a
+                          href="tel:+385958427667"
+                          class="btn btn-small btn-outline-maincolor btn-appointment"
+                        >
+                          Kontaktirajte nas
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- header toggler -->
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!--eof topline-->
+
+          <!-- header with single Bootstrap column only for navigation and includes. Used with topline and toplogo sections. Menu toggler must be in toplogo section -->
+          <header
+            class="page_header s-py-10 s-py-lg-0 ds ms s-overlay nav-bordered justify-nav-center"
+          >
+            <div class="container-fluid">
+              <div class="row align-items-center">
+                <div class="d-lg-none col-11">
+                  <a href="index.html" class="logo">
+                    <img
+                      src="images/logo.png"
+                      alt="Autoservis Katanović Logo"
+                    />
+                    <span class="logo-text fw-500">
+                      Autoservis<span class="fw-200">Katanović</span>
+                    </span>
+                  </a>
+                </div>
+
+                <div class="col-xl-12">
+                  <div class="nav-wrap">
+                    <!-- main nav start -->
+                    <nav class="top-nav">
+                      <ul class="nav sf-menu">
+                        <li>
+                          <a href="index.html">Početna</a>
+                        </li>
+                        <!-- eof pages -->
+                        <li class="active">
+                          <a href="usluge.html">Usluge</a>
+                        </li>
+                        <li>
+                          <a href="index.html#o-nama">O nama</a>
+                        </li>
+                        <li></li>
+                        <!-- eof features -->
+                        <!-- contacts -->
+                        <li>
+                          <a href="kontakt.html">Kontakt</a>
+                        </li>
+                        <!-- eof blog0 -->
+                        <li>
+                          <a href="blog.html">Blog</a>
+                        </li>
+                      </ul>
+                    </nav>
+                    <!-- eof main nav -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- header toggler -->
+
+            <span class="toggle_menu"><span></span></span>
+          </header>
+
+          <section
+            class="page_title ds s-pt-105 s-pb-50 s-pt-lg-115 s-pb-lg-60"
+          >
+            <div class="divider-3 d-none d-lg-block"></div>
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12">
+                  <h1 class="bold text-center text-lg-left">Naše Usluge</h1>
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a href="index.html">Početna</a>
+                    </li>
+                    <li class="breadcrumb-item active">Usluge</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <section class="ls s-pt-55 s-pb-20 s-pb-md-60 s-py-xl-145 c-gutter-60">
+          <div class="container">
+            <div class="col-12">
+              <h3 class="special-heading text-center">
+                Zašto odabrati
+                <span class="text-gradient">Autoservis Katanović</span>
+              </h3>
+              <p class="fs-20">Vaš partner za sigurno i pouzdano vozilo</p>
+              <div class="divider-60 d-none d-lg-block"></div>
+            </div>
+            <div class="row c-mb-30 c-mb-md-0">
+              <div class="col-md-4">
+                <div class="media align-items-center mb-40">
+                  <div class="icon-styled color-main fs-40">
+                    <i class="fa fa-cogs"></i>
+                    <!-- Ikona za širok spektar usluga -->
+                  </div>
+                  <div class="media-body">
+                    <p>Širok spektar usluga za sve tipove vozila</p>
+                  </div>
+                </div>
+                <div class="media align-items-center mb-40">
+                  <div class="icon-styled color-main fs-40">
+                    <i class="fa fa-check-circle"></i>
+                    <!-- Ikona za kvalitetu -->
+                  </div>
+                  <div class="media-body">
+                    <p>Jamčimo kvalitetu i sigurnost uz svaki popravak</p>
+                  </div>
+                </div>
+                <div class="media align-items-center">
+                  <div class="icon-styled color-main fs-40">
+                    <i class="fa fa-clock"></i>
+                    <!-- Ikona za brzinu usluge -->
+                  </div>
+                  <div class="media-body">
+                    <p>Brza i pouzdana rješenja za vašu udobnost</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-8 text-center text-lg-left">
+                <p>
+                  Autoservis Katanović pruža vrhunske usluge održavanja i
+                  popravaka vozila s fokusom na sigurnost i zadovoljstvo
+                  klijenata. Naš tim stručnjaka koristi najmoderniju tehnologiju
+                  i dijagnostičke alate kako bi vaše vozilo bilo u savršenom
+                  stanju.
+                </p>
+                <p>
+                  Bez obzira trebate li redovno održavanje, složene mehaničke
+                  popravke ili autoelektričarske usluge, možete računati na našu
+                  stručnost i predanost. Naš cilj je vaša sigurnost na cesti i
+                  dugotrajnost vašeg vozila.
+                </p>
+                <div class="mt-lg-40">
+                  <a
+                    href="tel:+385958427667"
+                    class="btn btn-small btn-outline-maincolor"
+                    >Kontaktirajte nas</a
+                  >
+                </div>
+                <div id="dijagnostika-vozila"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="ls ms s-pt-55 s-pb-3 s-pt-md-50 s-pb-md-45 s-py-lg-140 c-mb-40 c-mb-md-0 side-section text-center text-md-left"
+        >
+          <div class="divider-5"></div>
+          <div class="cover-image s-cover-left"></div>
+          <!-- half image background element -->
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <img
+                  src="images/service/dijagnostika-vozila.jpg"
+                  alt="Dijagnostika vozila - Autoservis Katanović"
+                />
+              </div>
+              <div class="col-md-6">
+                <div class="service-content content-left-padding">
+                  <h3 class="special-heading">
+                    Dijagnostika<span class="text-gradient">Vozila</span>
+                  </h3>
+                  <p>
+                    Dijagnostika vozila u Autoservisu Katanović ključni je korak
+                    za otkrivanje problema i osiguravanje pouzdanog rada vašeg
+                    automobila. Koristimo najmoderniju opremu i tehnologiju kako
+                    bismo precizno identificirali svaki kvar.
+                  </p>
+                  <p class="excerpt-service color-dark">
+                    Naš tim stručnjaka pregledava sljedeće sustave vašeg vozila:
+                  </p>
+                  <ul class="list1">
+                    <li>Računalna dijagnostika motora</li>
+                    <li>Provjera senzora i elektroničkih sustava</li>
+                    <li>Analiza sustava napajanja i punjenja baterije</li>
+                    <li>Pregled ispušnog sustava i emisija</li>
+                  </ul>
+                  <p>
+                    Uz preciznu dijagnostiku, naš cilj je osigurati sigurnu
+                    vožnju i dugotrajnost vašeg vozila. Pružamo vam detaljan
+                    uvid u stanje automobila i preporuke za potrebne popravke.
+                  </p>
+                  <div id="redovno-odrzavanje"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="ls ms s-pt-0 s-pb-3 s-pt-md-50 s-pb-md-45 s-py-lg-140 c-mb-40 c-mb-md-0 side-section text-center text-md-left"
+        >
+          <div class="divider-5"></div>
+          <div class="cover-image s-cover-right"></div>
+          <!-- half image background element -->
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 order-1 order-md-2">
+                <img
+                  src="images/service/redovno-održavanje-auta.jpg"
+                  alt="Redovno održavanje vozila - Autoservis Katanović"
+                />
+              </div>
+              <div class="col-md-6 order-2 order-md-1">
+                <div class="service-content content-right-padding">
+                  <h3 class="special-heading">
+                    Redovno<span class="text-gradient">Održavanje</span>
+                  </h3>
+                  <p>
+                    Redovno održavanje vozila ključno je za sigurnost na cesti i
+                    dugovječnost vašeg automobila. U Autoservisu Katanović
+                    pružamo sveobuhvatne usluge održavanja, prilagođene
+                    potrebama svakog klijenta.
+                  </p>
+                  <p class="excerpt-service color-dark">
+                    Naše usluge redovnog održavanja uključuju:
+                  </p>
+                  <ul class="list1">
+                    <li>Zamjena ulja i filtera</li>
+                    <li>Provjera i zamjena svjećica</li>
+                    <li>Kontrola kočionih sustava</li>
+                    <li>Pregled i održavanje rashladnih sustava</li>
+                  </ul>
+
+                  <p>
+                    Redovnim pregledima i održavanjem u našem servisu
+                    osiguravate optimalne performanse vašeg vozila, veću
+                    sigurnost i mirnu vožnju.
+                  </p>
+                  <div id="servis-kocnica"></div>
+                </div>
+              </div>
+            </div>
+            <div class="divider-5 d-md-none"></div>
+          </div>
+        </section>
+
+        <section
+          class="ls ms s-pt-10 s-pb-3 s-pt-md-50 s-pb-md-45 s-py-lg-140 c-mb-40 c-mb-md-0 side-section text-center text-md-left"
+        >
+          <div class="divider-5 d-none d-md-block"></div>
+          <div class="cover-image s-cover-left"></div>
+          <!-- half image background element -->
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <img
+                  src="images/service/servis-kočnica.jpg"
+                  alt="Servis kočnica - Autoservis Katanović"
+                />
+              </div>
+              <div class="col-md-6">
+                <div class="service-content content-left-padding">
+                  <h3 class="special-heading">
+                    Servis<span class="text-gradient">Kočnica</span>
+                  </h3>
+                  <p>
+                    Kočioni sustav vašeg vozila ključan je za sigurnost na
+                    cesti. U Autoservisu Katanović pružamo profesionalan i
+                    detaljan servis kočnica kako bismo osigurali da vaša vožnja
+                    bude sigurna u svim uvjetima.
+                  </p>
+                  <p class="excerpt-service color-dark">
+                    Naše usluge servisa kočnica uključuju:
+                  </p>
+                  <ul class="list1">
+                    <li>Zamjena kočionih pločica i diskova</li>
+                    <li>Popravak i održavanje kočionih čeljusti</li>
+                    <li>Provjera i zamjena kočione tekućine</li>
+                    <li>Računalna dijagnostika kočionog sustava</li>
+                  </ul>
+                  <p>
+                    Redovitim servisom kočnica produžujete njihov vijek trajanja
+                    i osiguravate optimalnu sigurnost za sebe i sve sudionike u
+                    prometu. Pružamo vrhunsku uslugu koristeći najkvalitetnije
+                    dijelove.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="ls ms s-pt-0 s-pb-3 s-pt-md-50 s-pb-md-45 s-py-lg-140 c-mb-40 c-mb-md-0 side-section text-center text-md-left"
+        >
+          <div class="divider-5"></div>
+          <div class="cover-image s-cover-right"></div>
+          <!-- half image background element -->
+          <div class="container" id="mehanicki-popravci">
+            <div class="row">
+              <div class="col-md-6 order-1 order-md-2">
+                <img
+                  src="images/service/mehanički-popravci.jpg"
+                  alt="Mehanički popravci - Autoservis Katanović"
+                />
+              </div>
+              <div class="col-md-6 order-2 order-md-1">
+                <div class="service-content content-right-padding">
+                  <h3 class="special-heading">
+                    Mehanički<span class="text-gradient">Popravci</span>
+                  </h3>
+                  <p>
+                    U Autoservisu Katanović pružamo sveobuhvatne mehaničke
+                    popravke za vaš automobil. Naš stručni tim koristi
+                    najsuvremeniju tehnologiju kako bi osigurao optimalne
+                    performanse vašeg vozila i vašu sigurnost na cesti.
+                  </p>
+                  <p class="excerpt-service color-dark">
+                    Naše usluge mehaničkih popravaka uključuju:
+                  </p>
+                  <ul class="list1">
+                    <li>Popravak i održavanje motora</li>
+                    <li>Servis mjenjača</li>
+                    <li>Zamjena amortizera i opruga</li>
+                    <li>Popravak sustava ovjesa</li>
+                  </ul>
+                  <p>
+                    Vaše vozilo zaslužuje najbolju njegu. Naš cilj je riješiti
+                    svaki kvar brzo i efikasno, koristeći kvalitetne dijelove
+                    koji jamče dugotrajnost i pouzdanost.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="divider-5 d-md-none"></div>
+          </div>
+        </section>
+        <section
+          class="ls ms s-pt-10 s-pb-3 s-pt-md-50 s-pb-md-45 s-py-lg-140 c-mb-40 c-mb-md-0 side-section text-center text-md-left"
+        >
+          <div class="divider-5 d-none d-md-block"></div>
+          <div class="cover-image s-cover-left"></div>
+          <!-- half image background element -->
+          <div class="container" id="autoelektricarske-usluge">
+            <div class="row">
+              <div class="col-md-6">
+                <img
+                  src="images/service/autoelektričarske-usluge.jpg"
+                  alt="Autoelektričarske usluge - Autoservis Katanović"
+                />
+              </div>
+              <div class="col-md-6">
+                <div class="service-content content-left-padding">
+                  <h3 class="special-heading">
+                    Autoelektričarske<span class="text-gradient">Usluge</span>
+                  </h3>
+                  <p>
+                    Moderni automobili sve više ovise o složenim elektroničkim
+                    sustavima. U Autoservisu Katanović nudimo profesionalne
+                    autoelektričarske usluge koje uključuju preciznu
+                    dijagnostiku i popravke elektroničkih komponenti.
+                  </p>
+                  <p class="excerpt-service color-dark">
+                    Naše usluge uključuju:
+                  </p>
+                  <ul class="list1">
+                    <li>Popravak i zamjena alternatora</li>
+                    <li>Servis i zamjena startera</li>
+                    <li>Popravak električnih instalacija</li>
+                    <li>Računalna dijagnostika elektroničkih sustava</li>
+                  </ul>
+                  <div id="servis-klima-uredaja"></div>
+                  <p>
+                    Naš tim stručnjaka osigurava da svi elektronički sustavi
+                    vašeg vozila rade ispravno, čime jamčimo sigurnu i pouzdanu
+                    vožnju.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="ls ms s-pt-0 s-pb-3 s-pt-md-50 s-pb-md-45 s-py-lg-140 c-mb-40 c-mb-md-0 side-section text-center text-md-left"
+        >
+          <div class="divider-5"></div>
+          <div class="cover-image s-cover-right"></div>
+          <!-- half image background element -->
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 order-1 order-md-2">
+                <img
+                  src="images/service/servis-klima-uređaja.webp"
+                  alt="Servis klima uređaja - Autoservis Katanović"
+                />
+              </div>
+              <div class="col-md-6 order-2 order-md-1">
+                <div class="service-content content-right-padding">
+                  <h3 class="special-heading">
+                    Servis<span class="text-gradient">Klima uređaja</span>
+                  </h3>
+                  <p>
+                    Osigurajte ugodnu i svježu vožnju tijekom cijele godine uz
+                    stručni servis klima uređaja u Autoservisu Katanović. Naš
+                    tim koristi najsuvremeniju opremu za punjenje, provjeru i
+                    popravak klima sustava.
+                  </p>
+                  <p class="excerpt-service color-dark">
+                    Naše usluge servisa klima uređaja uključuju:
+                  </p>
+                  <ul class="list1">
+                    <li>Punjenje plinom i zamjena rashladnih tekućina</li>
+                    <li>Provjera rada kompresora i ventilacije</li>
+                    <li>Popravak i zamjena oštećenih komponenti</li>
+                    <li>
+                      Održavanje učinkovitosti i funkcionalnosti klima uređaja
+                    </li>
+                  </ul>
+                  <p>
+                    Redovitim održavanjem klima uređaja osiguravate optimalnu
+                    učinkovitost, smanjenu potrošnju energije i maksimalnu
+                    udobnost tijekom vožnje. Povjerite svoj klima sustav našim
+                    stručnjacima!
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="divider-5 d-md-none"></div>
+          </div>
+        </section>
+
+        <section
+          class="ls ms s-pt-10 s-pb-3 s-pt-md-50 s-pb-md-45 s-py-lg-140 c-mb-40 c-mb-md-0 side-section text-center text-md-left"
+        >
+          <div class="divider-5 d-none d-md-block"></div>
+          <div class="cover-image s-cover-left"></div>
+          <!-- half image background element -->
+          <div class="container" id="servis-ovjesa">
+            <div class="row">
+              <div class="col-md-6">
+                <img
+                  src="images/service/servis-ovjesa-upravljanja.webp"
+                  alt="Servis ovjesa i upravljanja - Autoservis Katanović"
+                />
+              </div>
+              <div class="col-md-6">
+                <div class="service-content content-left-padding">
+                  <h3 class="special-heading">
+                    Servis<span class="text-gradient"
+                      >Ovjesa i Upravljanja</span
+                    >
+                  </h3>
+                  <p>
+                    Ovjes i upravljački sustav ključni su za stabilnost,
+                    sigurnost i udobnost vaše vožnje. U Autoservisu Katanović
+                    pružamo stručan servis ovjesa i upravljanja, koristeći
+                    visokokvalitetne dijelove i naprednu tehnologiju.
+                  </p>
+                  <p class="excerpt-service color-dark">
+                    Naše usluge uključuju:
+                  </p>
+                  <ul class="list1">
+                    <li>Zamjena amortizera i opruga</li>
+                    <li>Popravak i podešavanje geometrije kotača</li>
+                    <li>Održavanje i popravak upravljačkog mehanizma</li>
+                    <li>Provjera i zamjena ležajeva kotača</li>
+                  </ul>
+                  <p>
+                    Redovitim održavanjem ovjesa i upravljačkog sustava
+                    osiguravate maksimalnu kontrolu nad vozilom, smanjenu
+                    potrošnju guma i dugotrajnu sigurnost na cesti. Vaše
+                    zadovoljstvo i sigurnost naš su prioritet!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="ls ms s-pt-0 s-pb-3 s-pt-md-50 s-pb-md-45 s-py-lg-140 c-mb-40 c-mb-md-0 side-section text-center text-md-left"
+        >
+          <div class="divider-5"></div>
+          <div class="cover-image s-cover-right"></div>
+          <!-- half image background element -->
+          <div class="container" id="servis-svjetala">
+            <div class="row">
+              <div class="col-md-6 order-1 order-md-2">
+                <img
+                  src="images/service/servis-svjetala-vidljivosti.jpg"
+                  alt="Servis svjetala i vidljivosti - Autoservis Katanović"
+                />
+              </div>
+              <div class="col-md-6 order-2 order-md-1">
+                <div class="service-content content-right-padding">
+                  <h3 class="special-heading">
+                    Servis<span class="text-gradient"
+                      >Svjetala i Vidljivosti</span
+                    >
+                  </h3>
+                  <p>
+                    Sigurna vožnja počinje s optimalnom vidljivošću na cesti. U
+                    Autoservisu Katanović pružamo profesionalan servis svjetala
+                    i sustava vidljivosti kako bismo osigurali sigurnost svih
+                    sudionika u prometu.
+                  </p>
+                  <p class="excerpt-service color-dark">
+                    Naše usluge uključuju:
+                  </p>
+                  <ul class="list1">
+                    <li>Zamjena i podešavanje farova</li>
+                    <li>Servis i zamjena unutarnje rasvjete</li>
+                    <li>Provjera i zamjena žarulja, LED i HID sustava</li>
+                    <li>
+                      Održavanje i zamjena brisača za optimalnu vidljivost
+                    </li>
+                  </ul>
+                  <p>
+                    Redovitim održavanjem sustava svjetala i vidljivosti
+                    osiguravate optimalno osvjetljenje i čistoću vjetrobranskog
+                    stakla u svim vremenskim uvjetima. Pružamo brzu i pouzdanu
+                    uslugu za vašu sigurnost i udobnost.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="divider-5 d-md-none"></div>
+          </div>
+        </section>
+
+        <section
+          class="ls ms s-pt-10 s-pb-3 s-pt-md-50 s-pb-md-45 s-py-lg-140 c-mb-40 c-mb-md-0 side-section text-center text-md-left"
+        >
+          <div class="divider-5 d-none d-md-block"></div>
+          <div class="cover-image s-cover-left"></div>
+          <!-- half image background element -->
+          <div class="container" id="servis-ispusnih-sustava">
+            <div class="row">
+              <div class="col-md-6">
+                <img
+                  src="images/service/ispušni-sustav.jpg"
+                  alt="Servis ispušnih sustava - Autoservis Katanović"
+                />
+              </div>
+              <div class="col-md-6">
+                <div class="service-content content-left-padding">
+                  <h3 class="special-heading">
+                    Servis<span class="text-gradient">Ispušnih Sustava</span>
+                  </h3>
+                  <p>
+                    Ispravan ispušni sustav ključno je za ekološke standarde i
+                    optimalne performanse vašeg vozila. U Autoservisu Katanović
+                    nudimo stručne usluge održavanja, popravka i zamjene
+                    ispušnih sustava, koristeći visokokvalitetne dijelove.
+                  </p>
+                  <p class="excerpt-service color-dark">
+                    Naše usluge servisa ispušnih sustava uključuju:
+                  </p>
+                  <ul class="list1">
+                    <li>Zamjena ispušnih cijevi</li>
+                    <li>Popravak i zamjena katalizatora</li>
+                    <li>Održavanje prigušivača i zvučne izolacije</li>
+                    <li>Provjera emisija i smanjenje štetnih plinova</li>
+                  </ul>
+                  <p>
+                    Redovitim održavanjem ispušnog sustava ne samo da
+                    osiguravate ekološku prihvatljivost, već i produžavate vijek
+                    trajanja vašeg vozila. Povjerite nam brigu o ispušnim
+                    sustavima i uživajte u tihoj i ugodnoj vožnji.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="ls ms s-pt-0 s-pb-3 s-pt-md-50 s-pb-md-45 s-py-lg-140 c-mb-40 c-mb-md-0 side-section text-center text-md-left"
+        >
+          <div class="divider-5"></div>
+          <div class="cover-image s-cover-right"></div>
+          <!-- half image background element -->
+          <div class="container" id="ostale-usluge">
+            <div class="row">
+              <div class="col-md-6 order-1 order-md-2">
+                <img
+                  src="images/service/ostale-usluge.webp"
+                  alt="Ostale usluge - Autoservis Katanović"
+                />
+              </div>
+              <div class="col-md-6 order-2 order-md-1">
+                <div class="service-content content-right-padding">
+                  <h3 class="special-heading">
+                    Ostale<span class="text-gradient">Usluge</span>
+                  </h3>
+                  <p>
+                    U Autoservisu Katanović pružamo širok spektar dodatnih
+                    usluga kako bismo ispunili sve vaše potrebe vezane uz
+                    održavanje i sigurnost vozila. Naš stručni tim uvijek je
+                    spreman ponuditi rješenja prilagođena vašim zahtjevima.
+                  </p>
+                  <p class="excerpt-service color-dark">
+                    Naše ostale usluge uključuju:
+                  </p>
+                  <ul class="list1">
+                    <li>Zamjena i popravak automobilskih stakala</li>
+                    <li>Priprema vozila za tehnički pregled</li>
+                    <li>Popravak i zamjena podizača stakala</li>
+                    <li>Ugradnja dodatne opreme i prilagodbe</li>
+                  </ul>
+                  <p>
+                    Bilo da trebate pomoć s manjim popravcima ili prilagodbama,
+                    u Autoservisu Katanović osiguravamo brzu i profesionalnu
+                    uslugu, uvijek s naglaskom na kvalitetu i vaše zadovoljstvo.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="divider-5 d-md-none"></div>
+          </div>
+        </section>
+
+        <footer
+          class="page_footer text-center text-md-left ds ms s-pt-65 s-pt-lg-125 s-pb-lg-35 c-gutter-40 main-footer"
+        >
+          <div class="container">
+            <div class="row">
+              <div class="divider-20 d-none d-lg-block"></div>
+
+              <!-- Logo i kontakt informacije -->
+              <div class="col-md-6 col-lg-3 animate" data-animation="fadeInUp">
+                <div class="widget widget_icons_list">
+                  <a href="index.html" class="logo">
+                    <img
+                      src="images/logo.png"
+                      alt="Autoservis Katanović Logo"
+                      id="logo-footer"
+                    />
+                    <span id="title-footer" class="logo-text fw-500"
+                      >Autoservis<span class="fw-200">Katanović</span></span
+                    >
+                  </a>
+                  <div
+                    class="media side-icon-box"
+                    onclick="window.open('https://maps.app.goo.gl/UdiLBJKoxoGv8rd8A', '_blank');"
+                    style="cursor: pointer"
+                  >
+                    <div class="icon-styled color-main">
+                      <i class="fa fa-map-marker"></i>
+                    </div>
+                    <p class="media-body color-grey hover">
+                      Finčevec 5<br />
+                      48260 Sveti Petar Orehovec, Hrvatska<br />
+                    </p>
+                  </div>
+                  <div
+                    class="media side-icon-box"
+                    onclick="window.location.href='tel:+385958427667';"
+                    style="cursor: pointer"
+                  >
+                    <div class="icon-styled color-main">
+                      <i class="fa fa-phone"></i>
+                    </div>
+                    <p class="media-body color-grey hover">+385 95 842 7667</p>
+                  </div>
+                  <div
+                    class="media side-icon-box"
+                    onclick="window.location.href='mailto:autoserviskatanovic@gmail.com';"
+                    style="cursor: pointer"
+                  >
+                    <div class="icon-styled color-main">
+                      <i class="fa fa-envelope"></i>
+                    </div>
+                    <p class="media-body color-grey hover" id="mail-footer">
+                      autoserviskatanovic@gmail.com
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Korisne stranice -->
+              <div
+                class="col-md-6 col-lg-3 animate order-md-3 order-lg-2"
+                data-animation="fadeInUp"
+              >
+                <div class="widget widget_page_links">
+                  <h3>Korisne stranice</h3>
+                  <ul>
+                    <li>
+                      <a href="kontakt.html"
+                        ><i class="ico-check-circle"></i>Kontaktirajte nas</a
+                      >
+                    </li>
+                    <li>
+                      <a href="blog.html"
+                        ><i class="ico-check-circle"></i>Blog</a
+                      >
+                    </li>
+                    <li>
+                      <a href="index.html#o-nama"
+                        ><i class="ico-check-circle"></i>O nama</a
+                      >
+                    </li>
+                    <li>
+                      <a href="usluge.html"
+                        ><i class="ico-check-circle"></i>Usluge</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Usluge -->
+              <div
+                class="col-md-6 col-lg-3 animate order-md-4 order-lg-3"
+                data-animation="fadeInUp"
+              >
+                <div class="widget widget_services_links">
+                  <h3>Usluge</h3>
+                  <ul>
+                    <li>
+                      <a href="usluge.html#redovno-odrzavanje"
+                        ><i class="ico-check-circle"></i>Redovno održavanje</a
+                      >
+                    </li>
+                    <li>
+                      <a href="usluge.html#servis-kocnica"
+                        ><i class="ico-check-circle"></i>Servis kočnica</a
+                      >
+                    </li>
+                    <li>
+                      <a href="usluge.html#dijagnostika-vozila"
+                        ><i class="ico-check-circle"></i>Dijagnostika vozila</a
+                      >
+                    </li>
+                    <li>
+                      <a href="usluge.html#servis-klima-uredaja"
+                        ><i class="ico-check-circle"></i>Servis klima uređaja</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Radno vrijeme -->
+              <div
+                class="col-md-6 col-lg-3 c-gutter-10 animate order-lg-4"
+                data-animation="fadeInUp"
+              >
+                <div class="widget widget_working_hours">
+                  <h3>Radno vrijeme</h3>
+                  <ul>
+                    <li class="row">
+                      <div class="color-grey col-4">Ponedjeljak-Petak</div>
+                      <div class="col-md-8 col-8">
+                        <span id="time-footer" class="color-darkgrey"
+                          >08:00 - 20:00</span
+                        >
+                      </div>
+                    </li>
+                    <li class="row">
+                      <div class="color-grey col-4">Subota</div>
+                      <div class="col-md-8 col-8">
+                        <span class="color-darkgrey">08:00 - 14:00</span>
+                      </div>
+                    </li>
+                    <li class="row">
+                      <div class="color-grey col-4">Nedjelja</div>
+                      <div class="col-md-8 col-8">
+                        <span class="color-darkgrey">Zatvoreno</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+
+        <section class="page_copyright ds ms s-pt-5 s-pb-25 s-py-lg-20">
+          <div class="container">
+            <div class="divider-2 d-none d-lg-block"></div>
+            <div class="row align-items-center">
+              <div class="divider-20 d-none d-lg-block"></div>
+
+              <div class="col-md-12 text-center">
+                <p class="social-icons with-border">
+                  <span
+                    ><a
+                      href="https://www.facebook.com/"
+                      class="fa fa-facebook border-icon rounded-icon"
+                      title="facebook"
+                    ></a
+                  ></span>
+                  <span
+                    ><a
+                      href="https://www.instagram.com/"
+                      class="fa fa-instagram border-icon rounded-icon"
+                      title="instagram"
+                    ></a
+                  ></span>
+                </p>
+              </div>
+              <div class="divider-20 d-none d-lg-block"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- eof #box_wrapper -->
+    </div>
+    <!-- eof #canvas -->
+
+    <script src="js/compressed.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/switcher.js"></script>
+  </body>
+</html>

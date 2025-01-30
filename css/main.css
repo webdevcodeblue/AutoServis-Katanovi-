@@ -12876,7 +12876,7 @@ a img.aligncenter {
   left: 0;
   margin: 0;
   padding: 0;
-  position: relative;
+  position: sticky;
   right: 0;
   top: 0;
   -webkit-transition: 0.5s ease-in-out;
@@ -12888,7 +12888,7 @@ a img.aligncenter {
 .page_header.affix {
   box-shadow: 0 2px 15px 0 rgba(100, 100, 100, 0.05);
   opacity: 0.98;
-  position: sticky !important;
+  position: fixed !important;
   z-index: 1001;
 }
 .boxed .page_header:after,

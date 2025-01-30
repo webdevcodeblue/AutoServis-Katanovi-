@@ -104,35 +104,40 @@
                     <div
                       class="d-flex justify-lg-content-end align-items-center meta-icons"
                     >
-                      <div
-                        class="media"
-                        onclick="window.location.href='mailto:autoserviskatanovic@gmail.com';"
-                        style="cursor: pointer"
+                      <a
+                        href="mailto:autoserviskatanovic@gmail.com"
+                        style="text-decoration: none; color: inherit"
                       >
-                        <div class="icon-styled color-main fs-20">
-                          <i class="ico-email"></i>
+                        <div class="media" style="cursor: pointer">
+                          <div class="icon-styled color-main fs-20">
+                            <i class="ico-email"></i>
+                          </div>
+                          <div class="media-body">
+                            <h6>Email</h6>
+                            <p class="fw-400 font hide-on-small">
+                              autoserviskatanovic@gmail.com
+                            </p>
+                          </div>
                         </div>
-                        <div class="media-body">
-                          <h6>Email</h6>
-                          <p class="fw-400 font">
-                            autoserviskatanovic@gmail.com
-                          </p>
-                        </div>
-                      </div>
+                      </a>
 
-                      <div
-                        class="media"
-                        onclick="window.location.href='tel:+385958427667';"
-                        style="cursor: pointer"
+                      <a
+                        href="tel:+385958427667"
+                        style="text-decoration: none; color: inherit"
                       >
-                        <div class="icon-styled color-main fs-20">
-                          <i class="ico-phone-call"></i>
+                        <div
+                          class="media align-icon-center"
+                          style="cursor: pointer"
+                        >
+                          <div class="icon-styled color-main fs-20 icon-center">
+                            <i class="ico-phone-call"></i>
+                          </div>
+                          <div class="media-body">
+                            <h6>Telefon</h6>
+                            <p class="fw-400">+385 95 842 7667</p>
+                          </div>
                         </div>
-                        <div class="media-body">
-                          <h6>Telefon</h6>
-                          <p class="fw-400">+385 95 842 7667</p>
-                        </div>
-                      </div>
+                      </a>
                       <div class="d-none d-xl-block">
                         <a
                           href="tel:+385958427667"
@@ -164,7 +169,7 @@
                       src="images/logo.png"
                       alt="Autoservis Katanović Logo"
                     />
-                    <span class="logo-text fw-500">
+                    <span class="logo-text fw-500 title-small">
                       Autoservis<span class="fw-200">Katanović</span>
                     </span>
                   </a>
@@ -621,44 +626,61 @@
                       >Autoservis<span class="fw-200">Katanović</span></span
                     >
                   </a>
-                  <div
-                    class="media side-icon-box"
-                    onclick="window.open('https://maps.app.goo.gl/UdiLBJKoxoGv8rd8A', '_blank');"
-                    style="cursor: pointer"
+
+                  <a
+                    href="https://maps.app.goo.gl/UdiLBJKoxoGv8rd8A"
+                    target="_blank"
+                    style="text-decoration: none; color: inherit"
                   >
-                    <div class="icon-styled color-main">
-                      <i class="fa fa-map-marker"></i>
+                    <div
+                      class="media side-icon-box footer-razmak"
+                      style="cursor: pointer"
+                    >
+                      <div class="icon-styled color-main">
+                        <i class="fa fa-map-marker"></i>
+                      </div>
+                      <p class="media-body color-grey hover">
+                        Finčevec 5<br />
+                        48260 Sveti Petar Orehovec, Hrvatska<br />
+                      </p>
                     </div>
-                    <p class="media-body color-grey hover">
-                      Finčevec 5<br />
-                      48260 Sveti Petar Orehovec, Hrvatska<br />
-                    </p>
-                  </div>
-                  <div
-                    class="media side-icon-box"
-                    onclick="window.location.href='tel:+385958427667';"
-                    style="cursor: pointer"
+                  </a>
+
+                  <a
+                    href="tel:+385958427667"
+                    style="text-decoration: none; color: inherit"
                   >
-                    <div class="icon-styled color-main">
-                      <i class="fa fa-phone"></i>
+                    <div
+                      class="media side-icon-box footer-razmak"
+                      style="cursor: pointer"
+                    >
+                      <div class="icon-styled color-main">
+                        <i class="fa fa-phone"></i>
+                      </div>
+                      <p class="media-body color-grey hover">
+                        +385 95 842 7667
+                      </p>
                     </div>
-                    <p class="media-body color-grey hover">+385 95 842 7667</p>
-                  </div>
-                  <div
-                    class="media side-icon-box"
-                    onclick="window.location.href='mailto:autoserviskatanovic@gmail.com';"
-                    style="cursor: pointer"
+                  </a>
+
+                  <a
+                    href="mailto:autoserviskatanovic@gmail.com"
+                    style="text-decoration: none; color: inherit"
                   >
-                    <div class="icon-styled color-main">
-                      <i class="fa fa-envelope"></i>
+                    <div
+                      class="media side-icon-box footer-razmak"
+                      style="cursor: pointer"
+                    >
+                      <div class="icon-styled color-main">
+                        <i class="fa fa-envelope"></i>
+                      </div>
+                      <p class="media-body color-grey hover" id="mail-footer">
+                        autoserviskatanovic@gmail.com
+                      </p>
                     </div>
-                    <p class="media-body color-grey hover" id="mail-footer">
-                      autoserviskatanovic@gmail.com
-                    </p>
-                  </div>
+                  </a>
                 </div>
               </div>
-
               <!-- Korisne stranice -->
               <div
                 class="col-md-6 col-lg-3 animate order-md-3 order-lg-2"

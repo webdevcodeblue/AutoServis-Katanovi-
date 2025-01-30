@@ -7941,10 +7941,28 @@ a[class*='fa-'].fa-paper-plane:hover {
     justify-content: center !important; /* Centriranje na manjim ekranima */
     gap: 20px; /* Dodaje razmak između ikona */
   }
+  .hide-on-small {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 340px) {
   .title-small {
     font-size: 17px !important;
   }
+}
+
+@media screen and (max-width: 480px) {
+  .title-naslovnica {
+    font-size: 22px !important;
+  }
+}
+@media screen and (max-width: 350px) {
+  .title-naslovnica {
+    font-size: 20px !important;
+  }
+}
+
+.footer-razmak {
+  padding: 4px 0px;
 }

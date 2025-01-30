@@ -7922,3 +7922,29 @@ a[class*='fa-'].fa-paper-plane:hover {
 .hover:active {
   color: white; /* Tamnija nijansa kada se klikne */
 }
+
+@media screen and (max-width: 991px) {
+  /* Centriranje ikonice telefona unutar media div-a */
+  .align-icon-center {
+    display: flex;
+    align-items: center; /* Centriranje po visini */
+  }
+
+  /* Centriranje ikonice unutar ikona diva */
+  .icon-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Osigurava da ikonica zauzima cijeli dostupan prostor */
+  }
+  .meta-icons {
+    justify-content: center !important; /* Centriranje na manjim ekranima */
+    gap: 20px; /* Dodaje razmak između ikona */
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .title-small {
+    font-size: 17px !important;
+  }
+}

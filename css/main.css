@@ -16914,7 +16914,7 @@ body.active-side-header.slide-right .page_header_side {
     left: 0;
     margin-left: auto;
     margin-right: auto;
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 0;
   }

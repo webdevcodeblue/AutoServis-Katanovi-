@@ -1966,4 +1966,12 @@
   //end of IIFE function
 })(jQuery);
 
-// kod za pravilno ljepljenje hambureger menija nakon skorlanja gore dolje
+// treperenje
+document.addEventListener('scroll', function () {
+  let navbar = document.querySelector('.fixed-navbar');
+  if (window.scrollY > 50) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});

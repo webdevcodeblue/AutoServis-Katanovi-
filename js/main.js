@@ -2023,7 +2023,7 @@ document.addEventListener('DOMContentLoaded', function () {
       '--real-vh',
       `${window.innerHeight * 0.01}px`
     );
-    threshold = window.innerHeight * 0.0; // Ažuriraj 10% visine ako se prozor promijeni
+    threshold = window.innerHeight * 0.1; // Ažuriraj 10% visine ako se prozor promijeni
   }
 
   setRealVH();

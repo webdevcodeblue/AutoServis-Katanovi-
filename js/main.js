@@ -1967,3 +1967,40 @@
 })(jQuery);
 
 // treperenje
+document.addEventListener('DOMContentLoaded', function () {
+  let navbar = document.querySelector('.page_header');
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+
+  function stabilizeNavbar() {
+    if (Math.abs(window.scrollY - lastScrollY) > 5) {
+      navbar.style.willChange = 'transform, opacity';
+      navbar.style.backfaceVisibility = 'hidden';
+      navbar.style.transform = 'translateZ(0)';
+    } else {
+      navbar.style.willChange = '';
+      navbar.style.backfaceVisibility = '';
+      navbar.style.transform = '';
+    }
+    lastScrollY = window.scrollY;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      requestAnimationFrame(stabilizeNavbar);
+      ticking = true;
+    }
+  });
+
+  // Sprečavanje skakanja pri promjeni URL trake
+  function setRealVH() {
+    document.documentElement.style.setProperty(
+      '--real-vh',
+      `${window.innerHeight * 0.01}px`
+    );
+  }
+
+  setRealVH();
+  window.addEventListener('resize', setRealVH);
+});

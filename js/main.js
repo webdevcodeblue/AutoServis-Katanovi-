@@ -1967,58 +1967,5 @@
 })(jQuery);
 
 // treperenje
-document.addEventListener('DOMContentLoaded', function () {
-  let navbar = document.querySelector('.page_header');
-  let lastScrollY = window.scrollY;
-  let pickupPoint = null; // Mjesto gdje je navbar pokupio vrh
-  let isSticky = false; // Trenutno stanje navbar-a
-
-  function handleNavbar() {
-    if (!navbar) return;
-
-    if (window.innerWidth < 991) {
-      if (window.scrollY > lastScrollY) {
-        // Ako korisnik skrola prema dolje
-        if (!isSticky && navbar.getBoundingClientRect().top <= 0) {
-          // Pokupi navbar kada dotakne vrh
-          pickupPoint = navbar.offsetTop;
-          navbar.style.position = 'fixed';
-          navbar.style.top = '0';
-          navbar.style.width = '100%';
-          navbar.style.zIndex = '9999';
-          navbar.style.transition = 'top 0.3s ease-in-out';
-          isSticky = true;
-        }
-      } else {
-        // Ako korisnik skrola prema gore i dođe do pickup točke, otpusti navbar
-        if (isSticky && window.scrollY <= pickupPoint) {
-          navbar.style.position = 'absolute';
-          navbar.style.top = `${pickupPoint}px`;
-          isSticky = false;
-        }
-      }
-    } else {
-      // Ako je ekran veći od 991px, resetiraj navbar na normalno stanje
-      navbar.style.position = 'static';
-      isSticky = false;
-      pickupPoint = null;
-    }
-
-    lastScrollY = window.scrollY;
-  }
-
-  window.addEventListener('scroll', handleNavbar);
-
-  // Sprečavanje skakanja pri promjeni URL trake na mobilnim uređajima
-  function setRealVH() {
-    document.documentElement.style.setProperty(
-      '--real-vh',
-      `${window.innerHeight * 0.01}px`
-    );
-  }
-
-  setRealVH();
-  window.addEventListener('resize', setRealVH);
-});
 
 //jos koda

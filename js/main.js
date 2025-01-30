@@ -1968,6 +1968,8 @@
 
 // treperenje
 document.addEventListener('DOMContentLoaded', function () {
+  if (window.innerWidth > 991) return; // Ako je ekran veći od 991px, prekini izvršavanje koda
+
   let navbar = document.querySelector('.page_header');
   let lastScrollY = window.scrollY;
   let ticking = false;
@@ -2021,3 +2023,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
   fixNavbarPosition();
 });
+
+//jos koda

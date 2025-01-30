@@ -7966,3 +7966,15 @@ a[class*='fa-'].fa-paper-plane:hover {
 .footer-razmak {
   padding: 4px 0px;
 }
+/*navbar treptanje problem */
+.fixed-navbar {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}
+
+@media screen and (max-width: 991px) {
+  .fixed-navbar {
+    transition: none !important;
+  }
+}

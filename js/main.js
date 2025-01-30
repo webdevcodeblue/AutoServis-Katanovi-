@@ -1965,3 +1965,25 @@
 
   //end of IIFE function
 })(jQuery);
+
+// kod za pravilno ljepljenje hambureger menija nakon skorlanja gore dolje
+document.addEventListener('DOMContentLoaded', function () {
+  let navbar = document.querySelector('.fixed-navbar');
+  let contactInfo = document.querySelector('.contact-info');
+
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 100) {
+      // Kada skrola više od 100px
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  window.addEventListener('scroll', function () {
+    if (window.scrollY < 50) {
+      // Ako se korisnik vraća na vrh
+      contactInfo.style.opacity = '1'; // Ponovno prikazuje kontakt info
+    }
+  });
+});

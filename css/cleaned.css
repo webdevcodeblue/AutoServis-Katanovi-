@@ -7966,3 +7966,26 @@ a[class*='fa-'].fa-paper-plane:hover {
 .footer-razmak {
   padding: 4px 0px;
 }
+
+/*problem sa navbarom kada se kod vracanja ne lijepi dobro */
+.fixed-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999; /* Osigurava da je navbar uvijek na vrhu */
+  background-color: white; /* Postavi boju pozadine kako ne bi bio proziran */
+  transition: all 0.3s ease-in-out;
+}
+
+.fixed-navbar .contact-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 20px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.fixed-navbar.scrolled .contact-info {
+  opacity: 0; /* Sakrij email i telefon kad se skrola */
+}

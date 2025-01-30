@@ -1973,15 +1973,20 @@ document.addEventListener('DOMContentLoaded', function () {
   let ticking = false;
 
   function stabilizeNavbar() {
-    if (Math.abs(window.scrollY - lastScrollY) > 5) {
+    if (!navbar) return;
+
+    let scrollDifference = Math.abs(window.scrollY - lastScrollY);
+
+    if (scrollDifference > 5) {
       navbar.style.willChange = 'transform, opacity';
       navbar.style.backfaceVisibility = 'hidden';
       navbar.style.transform = 'translateZ(0)';
     } else {
-      navbar.style.willChange = '';
-      navbar.style.backfaceVisibility = '';
-      navbar.style.transform = '';
+      navbar.style.willChange = 'auto';
+      navbar.style.backfaceVisibility = 'visible';
+      navbar.style.transform = 'none';
     }
+
     lastScrollY = window.scrollY;
     ticking = false;
   }
@@ -1993,7 +1998,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Sprečavanje skakanja pri promjeni URL trake
+  // Sprečavanje skakanja pri promjeni URL trake na mobilnim uređajima
   function setRealVH() {
     document.documentElement.style.setProperty(
       '--real-vh',
@@ -2003,4 +2008,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
   setRealVH();
   window.addEventListener('resize', setRealVH);
+
+  // Osiguravanje da navbar ne nestane nakon brzog skrolanja
+  function fixNavbarPosition() {
+    if (!navbar) return;
+    navbar.style.position = 'fixed';
+    navbar.style.top = '0';
+    navbar.style.width = '100%';
+    navbar.style.zIndex = '9999';
+    navbar.style.transition = 'transform 0.3s ease-in-out';
+  }
+
+  fixNavbarPosition();
 });

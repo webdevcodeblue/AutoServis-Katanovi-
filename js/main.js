@@ -1967,19 +1967,3 @@
 })(jQuery);
 
 // treperenje
-document.addEventListener('DOMContentLoaded', function () {
-  let navbar = document.querySelector('.fixed-navbar');
-  let lastScrollTop = 0;
-
-  window.addEventListener('scroll', function () {
-    let scrollTop = window.scrollY || document.documentElement.scrollTop;
-
-    if (scrollTop > lastScrollTop) {
-      navbar.classList.add('scrolled'); // Dodaje klasu kad skrola dolje
-    } else {
-      navbar.classList.remove('scrolled'); // Uklanja kad skrola gore
-    }
-
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Sprečava negativne vrijednosti
-  });
-});

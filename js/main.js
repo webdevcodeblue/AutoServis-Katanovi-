@@ -167,40 +167,37 @@
         },
       });
 
-      let resizeTimeout;
       $window.on('resize', function () {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(function () {
-          $affixAside
-            .removeClass('affix affix-bottom')
-            .addClass('affix-top')
-            .trigger('affix-top.bs.affix');
+        //returning sidebar in top position if it is sticked because of unexpected behavior
+        $affixAside
+          .removeClass('affix affix-bottom')
+          .addClass('affix-top')
+          .trigger('affix-top.bs.affix');
 
-          var offsetTopSectionsArray = [
-            '.page_topline',
-            '.page_toplogo',
-            '.page_header',
-            '.page_title',
-            '.blog_slider',
-            '.blog-featured-posts',
-          ];
-          var offsetTop = 0;
+        var offsetTopSectionsArray = [
+          '.page_topline',
+          '.page_toplogo',
+          '.page_header',
+          '.page_title',
+          '.blog_slider',
+          '.blog-featured-posts',
+        ];
+        var offsetTop = 0;
 
-          offsetTopSectionsArray.map(function (val) {
-            offsetTop += $(val).outerHeight(true) || 0;
-          });
+        offsetTopSectionsArray.map(function (val) {
+          offsetTop += $(val).outerHeight(true) || 0;
+        });
+        //note that page_footer and page_copyright sections must exists - else this will cause error in last jQuery versions
+        var offsetBottom =
+          $('.page_footer').outerHeight(true) +
+          $('.page_copyright').outerHeight(true);
 
-          var offsetBottom =
-            $('.page_footer').outerHeight(true) +
-            $('.page_copyright').outerHeight(true);
+        $affixAside.data('bs.affix').options.offset.top =
+          offsetTop - offsetTopAdd;
+        $affixAside.data('bs.affix').options.offset.bottom =
+          offsetBottom + offsetBottomAdd;
 
-          $affixAside.data('bs.affix').options.offset.top =
-            offsetTop - offsetTopAdd;
-          $affixAside.data('bs.affix').options.offset.bottom =
-            offsetBottom + offsetBottomAdd;
-
-          $affixAside.affix('checkPosition');
-        }, 200); // Čekamo 200ms prije ažuriranja
+        $affixAside.affix('checkPosition');
       });
 
       $affixAside.affix('checkPosition');

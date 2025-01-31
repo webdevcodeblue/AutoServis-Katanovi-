@@ -1969,49 +1969,43 @@
 // treperenje
 
 document.addEventListener('DOMContentLoaded', function () {
+  let navbar = document.querySelector('.page_header');
   let lastScrollY = window.scrollY;
-  let isNearBottom = false;
-  let isJumpingPrevented = false;
-  let lastStableScrollY = window.scrollY;
+  let isSticky = false;
 
-  function preventJumping() {
-    let currentScrollY = window.scrollY;
-    let windowHeight = window.innerHeight;
-    let documentHeight = document.body.scrollHeight;
-    let buffer = 100; // Prag kada aktivirati zaštitu
+  function handleNavbar() {
+    if (!navbar) return;
 
-    // 1️⃣ **Sprječavanje skokova (ali BEZ bljeskanja)**
-    if (Math.abs(currentScrollY - lastScrollY) > 150) {
-      window.requestAnimationFrame(() => {
-        window.scrollTo({
-          top: lastStableScrollY,
-          behavior: 'instant', // Sprječava bljeskanje
-        });
-      });
-      isJumpingPrevented = true;
-      return; // Prekini funkciju, ne izvršavaj donji kod
-    } else {
-      isJumpingPrevented = false;
-      lastStableScrollY = currentScrollY; // Ako je scroll stabilan, ažuriraj stabilnu poziciju
-    }
-
-    // 2️⃣ **Dopuštanje normalnog skrolanja do kraja**
-    if (documentHeight - (currentScrollY + windowHeight) < buffer) {
-      if (!isNearBottom) {
-        isNearBottom = true;
-        lastScrollY = currentScrollY; // Zaključaj trenutni scroll
+    if (window.innerWidth < 991) {
+      if (window.scrollY > 50) {
+        // Kad skrola više od 50px → navbar postaje sticky
+        if (!isSticky) {
+          navbar.classList.add('scrolled');
+          navbar.style.position = 'fixed';
+          isSticky = true;
+        }
+      } else {
+        // Kad se vrati na vrh → navbar prestaje biti sticky
+        if (isSticky) {
+          navbar.classList.remove('scrolled');
+          navbar.style.position = 'absolute';
+          isSticky = false;
+        }
       }
     } else {
-      isNearBottom = false; // Ako nismo blizu dna, resetiraj zaključavanje
+      // Ako je ekran veći od 991px → resetiraj navbar
+      navbar.style.position = 'static';
+      navbar.classList.remove('scrolled');
+      isSticky = false;
     }
 
-    // 3️⃣ **Ako korisnik nastavi normalno skrolati prema dolje → dopusti skrolanje do kraja**
-    if (isNearBottom && currentScrollY > lastScrollY) {
-      isNearBottom = false;
-    }
-
-    lastScrollY = currentScrollY; // Ažuriraj zadnju stabilnu poziciju
+    lastScrollY = window.scrollY;
   }
 
-  window.addEventListener('scroll', preventJumping);
+  window.addEventListener('scroll', handleNavbar);
 });
+
+//kraj treperenja
+
+//******************************************
+// skakanje

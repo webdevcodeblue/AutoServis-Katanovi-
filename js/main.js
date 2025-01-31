@@ -2081,17 +2081,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
   window.addEventListener('scroll', preventJumping);
 });
-
-// eliminacija flickera/bljeskanja
+//  eliminira flicker uz očuvanje svih funkcionalnosti
 window.addEventListener('scroll', function () {
-  document.documentElement.style.willChange = 'scroll-position';
-  document.documentElement.style.backfaceVisibility = 'hidden';
-  document.documentElement.style.transform = 'translateZ(0)';
+  let body = document.body;
+  let html = document.documentElement;
 
-  clearTimeout(window.removeFlicker);
-  window.removeFlicker = setTimeout(() => {
-    document.documentElement.style.willChange = 'auto';
-    document.documentElement.style.backfaceVisibility = 'visible';
-    document.documentElement.style.transform = 'none';
-  }, 50);
+  // Sprečava promjene u visini tijela stranice koje izazivaju bljeskove
+  let currentHeight = Math.max(
+    body.scrollHeight,
+    body.offsetHeight,
+    html.clientHeight,
+    html.scrollHeight,
+    html.offsetHeight
+  );
+
+  if (!html.style.minHeight || parseInt(html.style.minHeight) < currentHeight) {
+    html.style.minHeight = currentHeight + 'px';
+  }
+
+  // Sprečava iznenadne promjene u visini elemenata koji dolaze u viewport
+  document.querySelectorAll('[data-animation], .lazy-load').forEach((el) => {
+    el.style.willChange = 'opacity, transform';
+  });
+
+  clearTimeout(window.removeFlickerFix);
+  window.removeFlickerFix = setTimeout(() => {
+    document.querySelectorAll('[data-animation], .lazy-load').forEach((el) => {
+      el.style.willChange = 'auto';
+    });
+  }, 100);
 });

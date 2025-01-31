@@ -2010,8 +2010,6 @@ document.addEventListener('DOMContentLoaded', function () {
 // skakanje
 document.addEventListener('DOMContentLoaded', function () {
   let lastScrollY = window.scrollY;
-  let lastStableScrollY = window.scrollY;
-  let isJumpingPrevented = false;
   let isNearBottom = false;
 
   function preventJumping() {
@@ -2020,37 +2018,21 @@ document.addEventListener('DOMContentLoaded', function () {
     let documentHeight = document.body.scrollHeight;
     let buffer = 150; // Prag blizu dna
 
-    // 1️⃣ **Sprečava nagle promjene u scroll poziciji**
-    if (Math.abs(currentScrollY - lastScrollY) > 50) {
-      window.requestAnimationFrame(() => {
-        window.scrollTo(0, lastStableScrollY);
-      });
-      isJumpingPrevented = true;
+    // 1️⃣ **Sprečava nagle skokove**
+    if (Math.abs(currentScrollY - lastScrollY) > 50 && !isNearBottom) {
+      window.scrollTo(0, lastScrollY);
       return;
-    } else {
-      isJumpingPrevented = false;
-      lastStableScrollY = currentScrollY; // Ako nema problema, ažuriraj normalnu poziciju
     }
 
-    // 2️⃣ **Osigurava glatko skrolanje do kraja stranice**
+    // 2️⃣ **Omogućava glatko skrolanje do kraja**
     if (documentHeight - (currentScrollY + windowHeight) < buffer) {
-      if (!isNearBottom) {
-        isNearBottom = true;
-        lastScrollY = currentScrollY;
-      }
+      isNearBottom = true;
     } else {
       isNearBottom = false;
     }
 
     lastScrollY = currentScrollY;
   }
-
-  // 3️⃣ **Sprečava browser da uopće pomisli na skok!**
-  setInterval(() => {
-    if (isJumpingPrevented) {
-      window.scrollTo(0, lastStableScrollY);
-    }
-  }, 10); // Provjera svakih 10ms (dovoljno brzo, ali ne previše agresivno)
 
   window.addEventListener('scroll', preventJumping);
 });

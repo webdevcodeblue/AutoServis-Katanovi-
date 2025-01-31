@@ -116,40 +116,42 @@
   }
 
   //NOTE: affixed sidebar works bad with side headers
-  function initAffixSidebar() {
-    var $affixAside = $('.affix-aside');
-    if ($affixAside.length) {
-      $window = $(window);
+  $affixAside
+  .on('affix.bs.affix', function (e) {
+    var affixWidth = $affixAside.width();
+    var affixLeft = $affixAside.offset().left;
 
-      //on stick and unstick event
-      $affixAside
-        .on('affix.bs.affix', function (e) {
-          var affixWidth = $affixAside.width() - 1;
-          var affixLeft = $affixAside.offset().left;
-          $affixAside.width(affixWidth).css('left', affixLeft);
-        })
-        .on('affix-bottom.bs.affix', function (e) {
-          var affixWidth = $affixAside.width() - 1;
-          //if sticked left header
-          var stickedSideHeaderWidth = 0;
-          var $stickedSideHeader = $('.header_side_sticked');
-          if (
-            $stickedSideHeader.length &&
-            $stickedSideHeader.hasClass('active-slide-side-header') &&
-            !$stickedSideHeader.hasClass('header_side_right')
-          ) {
-            stickedSideHeaderWidth = $stickedSideHeader.outerWidth(true);
-          }
-          var affixLeft =
-            $affixAside.offset().left -
-            stickedSideHeaderWidth -
-            $('#box_wrapper').offset().left;
+    // Sprječava višestruko resetiranje pozicije sidebar-a
+    if (!$affixAside.hasClass('affixed')) {
+      $affixAside.width(affixWidth).css('left', affixLeft);
+      $affixAside.addClass('affixed'); // Dodajemo klasu kako bismo označili da je već resetirano
+    }
+  })
+  .on('affix-bottom.bs.affix', function (e) {
+    var affixWidth = $affixAside.width();
+    var stickedSideHeaderWidth = 0;
+    var $stickedSideHeader = $('.header_side_sticked');
 
-          $affixAside.width(affixWidth).css('left', affixLeft);
-        })
-        .on('affix-top.bs.affix', function (e) {
-          $affixAside.css({ width: '', left: '' });
-        });
+    if (
+      $stickedSideHeader.length &&
+      $stickedSideHeader.hasClass('active-slide-side-header') &&
+      !$stickedSideHeader.hasClass('header_side_right')
+    ) {
+      stickedSideHeaderWidth = $stickedSideHeader.outerWidth(true);
+    }
+
+    var affixLeft =
+      $affixAside.offset().left -
+      stickedSideHeaderWidth -
+      $('#box_wrapper').offset().left;
+
+    $affixAside.width(affixWidth).css('left', affixLeft);
+  })
+  .on('affix-top.bs.affix', function (e) {
+    $affixAside.css({ width: '', left: '' });
+    $affixAside.removeClass('affixed'); // Uklanjamo klasu kada se sidebar vrati na vrh
+  });
+
 
       //counting offset
       var offsetTopAdd = 10;

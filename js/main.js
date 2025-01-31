@@ -1979,4 +1979,4 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('resize', setRealVH);
 });
 
-//jos koda
+//kraj treperenja

@@ -2013,22 +2013,26 @@ document.addEventListener('DOMContentLoaded', function () {
   let lastScrollY = window.scrollY;
   let isNearBottom = false;
   let isPreventingJump = false;
+  let buffer = 150; // Prag blizu dna
 
   function preventJumping() {
     let currentScrollY = window.scrollY;
     let windowHeight = window.innerHeight;
     let documentHeight = document.body.scrollHeight;
-    let buffer = 150; // Prag blizu dna
 
-    // 1️⃣ **Sprječava nagle skokove**
+    // ✅ **1️⃣ Sprječava nagle skokove bez bljeska**
     if (!isPreventingJump && Math.abs(currentScrollY - lastScrollY) > 50) {
       isPreventingJump = true;
+      document.body.classList.add('scroll-lock'); // Sprječava flicker
       window.scrollTo(0, lastScrollY);
-      setTimeout(() => (isPreventingJump = false), 100); // Resetira nakon kratke pauze
+      setTimeout(() => {
+        isPreventingJump = false;
+        document.body.classList.remove('scroll-lock'); // Omogućava normalan scroll
+      }, 100);
       return;
     }
 
-    // 2️⃣ **Omogućava glatko skrolanje do kraja**
+    // ✅ **2️⃣ Omogućava glatko skrolanje do kraja**
     if (documentHeight - (currentScrollY + windowHeight) < buffer) {
       isNearBottom = true;
     } else {
@@ -2038,7 +2042,7 @@ document.addEventListener('DOMContentLoaded', function () {
     lastScrollY = currentScrollY;
   }
 
-  // 3️⃣ **Detektira promjene u DOM-u koje mogu izazvati skokove**
+  // ✅ **3️⃣ Detektira promjene u DOM-u i osigurava da ne izazovu skokove**
   const observer = new MutationObserver(() => {
     setTimeout(() => {
       let windowHeight = window.innerHeight;

@@ -80,7 +80,10 @@ h6 {
   margin-top: 4.5em;
 }
 /*bljesak*/
-
+.scroll-lock {
+  overflow: hidden;
+  will-change: transform;
+}
 /*bljesak*/
 @media (max-width: 575px) {
   h1 {

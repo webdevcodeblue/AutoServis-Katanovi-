@@ -152,8 +152,9 @@
         });
 
       //counting offset
-      var offsetTopAdd = 10;
-      var offsetBottomAdd = 150;
+      var offsetTopAdd = $('.page_header').outerHeight() || 10;
+      var offsetBottomAdd = $('.page_footer').outerHeight(true) / 2 || 150;
+
       var offsetTop = $affixAside.offset().top - $('.page_header').height();
       //note that page_footer and page_copyright sections must exists - else this will cause error in last jQuery versions
       var offsetBottom =
@@ -200,7 +201,7 @@
         $affixAside.affix('checkPosition');
       });
 
-      //$affixAside.affix('checkPosition');
+      $affixAside.affix('checkPosition');
     } //eof checking of affix sidebar existing
   }
 

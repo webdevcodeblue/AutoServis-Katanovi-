@@ -116,46 +116,44 @@
   }
 
   //NOTE: affixed sidebar works bad with side headers
-  $affixAside
-  .on('affix.bs.affix', function (e) {
-    var affixWidth = $affixAside.width();
-    var affixLeft = $affixAside.offset().left;
+  function initAffixSidebar() {
+    var $affixAside = $('.affix-aside');
+    if ($affixAside.length) {
+      $window = $(window);
 
-    // Sprječava višestruko resetiranje pozicije sidebar-a
-    if (!$affixAside.hasClass('affixed')) {
-      $affixAside.width(affixWidth).css('left', affixLeft);
-      $affixAside.addClass('affixed'); // Dodajemo klasu kako bismo označili da je već resetirano
-    }
-  })
-  .on('affix-bottom.bs.affix', function (e) {
-    var affixWidth = $affixAside.width();
-    var stickedSideHeaderWidth = 0;
-    var $stickedSideHeader = $('.header_side_sticked');
+      //on stick and unstick event
+      $affixAside
+        .on('affix.bs.affix', function (e) {
+          var affixWidth = $affixAside.width() - 1;
+          var affixLeft = $affixAside.offset().left;
+          $affixAside.width(affixWidth).css('left', affixLeft);
+        })
+        .on('affix-bottom.bs.affix', function (e) {
+          var affixWidth = $affixAside.width() - 1;
+          //if sticked left header
+          var stickedSideHeaderWidth = 0;
+          var $stickedSideHeader = $('.header_side_sticked');
+          if (
+            $stickedSideHeader.length &&
+            $stickedSideHeader.hasClass('active-slide-side-header') &&
+            !$stickedSideHeader.hasClass('header_side_right')
+          ) {
+            stickedSideHeaderWidth = $stickedSideHeader.outerWidth(true);
+          }
+          var affixLeft =
+            $affixAside.offset().left -
+            stickedSideHeaderWidth -
+            $('#box_wrapper').offset().left;
 
-    if (
-      $stickedSideHeader.length &&
-      $stickedSideHeader.hasClass('active-slide-side-header') &&
-      !$stickedSideHeader.hasClass('header_side_right')
-    ) {
-      stickedSideHeaderWidth = $stickedSideHeader.outerWidth(true);
-    }
-
-    var affixLeft =
-      $affixAside.offset().left -
-      stickedSideHeaderWidth -
-      $('#box_wrapper').offset().left;
-
-    $affixAside.width(affixWidth).css('left', affixLeft);
-  })
-  .on('affix-top.bs.affix', function (e) {
-    $affixAside.css({ width: '', left: '' });
-    $affixAside.removeClass('affixed'); // Uklanjamo klasu kada se sidebar vrati na vrh
-  });
-
+          $affixAside.width(affixWidth).css('left', affixLeft);
+        })
+        .on('affix-top.bs.affix', function (e) {
+          $affixAside.css({ width: '', left: '' });
+        });
 
       //counting offset
       var offsetTopAdd = 10;
-      var offsetBottomAdd = 150;
+      var offsetBottomAdd = 50;
       var offsetTop = $affixAside.offset().top - $('.page_header').height();
       //note that page_footer and page_copyright sections must exists - else this will cause error in last jQuery versions
       var offsetBottom =

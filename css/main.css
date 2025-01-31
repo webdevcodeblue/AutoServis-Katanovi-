@@ -10,9 +10,6 @@ html {
   position: relative;
   width: 100%;
 }
-html {
-  scroll-behavior: auto !important;
-}
 
 ::-moz-selection {
   background-color: #ff4e3c;

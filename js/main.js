@@ -2008,8 +2008,3 @@ document.addEventListener('DOMContentLoaded', function () {
 //kraj treperenja
 
 // skakanje
-document.addEventListener('DOMContentLoaded', function () {
-  if (window.location.hash === '#partners') {
-    window.history.replaceState({}, document.title, window.location.pathname);
-  }
-});

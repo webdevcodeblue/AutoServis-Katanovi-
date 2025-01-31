@@ -79,6 +79,21 @@ h6 {
   margin-bottom: 0.9em;
   margin-top: 4.5em;
 }
+/*bljesak*/
+html, body {
+  scroll-behavior: smooth; /* Omogućuje glatko skrolanje */
+  overflow-x: hidden; /* Sprječava horizontalni pomak */
+}
+
+.page_header {
+  will-change: transform, opacity; /* Optimizira performanse */
+  backface-visibility: hidden; /* Sprječava bljeskanje */
+}
+
+body {
+  transform: translateZ(0); /* Osigurava da se cijela stranica ponaša stabilno */
+}
+/*bljesak*/
 @media (max-width: 575px) {
   h1 {
     font-size: 1.8rem;

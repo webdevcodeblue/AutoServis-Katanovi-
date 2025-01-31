@@ -1969,69 +1969,48 @@
 // treperenje
 
 document.addEventListener('DOMContentLoaded', function () {
-  let navbar = document.querySelector('.page_header');
-  let lastScrollY = window.scrollY;
-  let isSticky = false;
-
-  function handleNavbar() {
-    if (!navbar) return;
-
-    if (window.innerWidth < 991) {
-      if (window.scrollY > 50) {
-        // Kad skrola više od 50px → navbar postaje sticky
-        if (!isSticky) {
-          navbar.classList.add('scrolled');
-          navbar.style.position = 'fixed';
-          isSticky = true;
-        }
-      } else {
-        // Kad se vrati na vrh → navbar prestaje biti sticky
-        if (isSticky) {
-          navbar.classList.remove('scrolled');
-          navbar.style.position = 'absolute';
-          isSticky = false;
-        }
-      }
-    } else {
-      // Ako je ekran veći od 991px → resetiraj navbar
-      navbar.style.position = 'static';
-      navbar.classList.remove('scrolled');
-      isSticky = false;
-    }
-
-    lastScrollY = window.scrollY;
-  }
-
-  window.addEventListener('scroll', handleNavbar);
-});
-
-//kraj treperenja
-
-// skakanje
-document.addEventListener('DOMContentLoaded', function () {
   let lastScrollY = window.scrollY;
   let isNearBottom = false;
+  let isJumpingPrevented = false;
+  let lastStableScrollY = window.scrollY;
 
   function preventJumping() {
     let currentScrollY = window.scrollY;
     let windowHeight = window.innerHeight;
     let documentHeight = document.body.scrollHeight;
-    let buffer = 150; // Prag blizu dna
+    let buffer = 100; // Prag kada aktivirati zaštitu
 
-    // 1️⃣ **Sprečava nagle skokove**
-    if (Math.abs(currentScrollY - lastScrollY) > 50 && !isNearBottom) {
-      window.scrollTo(0, lastScrollY);
-      return;
+    // 1️⃣ **Sprječavanje skokova (ali BEZ bljeskanja)**
+    if (Math.abs(currentScrollY - lastScrollY) > 150) {
+      window.requestAnimationFrame(() => {
+        window.scrollTo({
+          top: lastStableScrollY,
+          behavior: 'instant', // Sprječava bljeskanje
+        });
+      });
+      isJumpingPrevented = true;
+      return; // Prekini funkciju, ne izvršavaj donji kod
+    } else {
+      isJumpingPrevented = false;
+      lastStableScrollY = currentScrollY; // Ako je scroll stabilan, ažuriraj stabilnu poziciju
     }
 
-    // 2️⃣ **Omogućava glatko skrolanje do kraja**
+    // 2️⃣ **Dopuštanje normalnog skrolanja do kraja**
     if (documentHeight - (currentScrollY + windowHeight) < buffer) {
-      isNearBottom = true;
+      if (!isNearBottom) {
+        isNearBottom = true;
+        lastScrollY = currentScrollY; // Zaključaj trenutni scroll
+      }
     } else {
+      isNearBottom = false; // Ako nismo blizu dna, resetiraj zaključavanje
+    }
+
+    // 3️⃣ **Ako korisnik nastavi normalno skrolati prema dolje → dopusti skrolanje do kraja**
+    if (isNearBottom && currentScrollY > lastScrollY) {
       isNearBottom = false;
     }
 
-    lastScrollY = currentScrollY;
+    lastScrollY = currentScrollY; // Ažuriraj zadnju stabilnu poziciju
   }
 
   window.addEventListener('scroll', preventJumping);

@@ -2010,9 +2010,9 @@ document.addEventListener('DOMContentLoaded', function () {
 // skakanje
 document.addEventListener('DOMContentLoaded', function () {
   let lastScrollY = window.scrollY;
+  let lastStableScrollY = window.scrollY;
   let isNearBottom = false;
   let isJumpingPrevented = false;
-  let lastStableScrollY = window.scrollY;
 
   function preventJumping() {
     let currentScrollY = window.scrollY;
@@ -2020,38 +2020,45 @@ document.addEventListener('DOMContentLoaded', function () {
     let documentHeight = document.body.scrollHeight;
     let buffer = 100; // Prag kada aktivirati zaštitu
 
-    // 1️⃣ **Sprječavanje skokova (ali BEZ bljeskanja)**
-    if (Math.abs(currentScrollY - lastScrollY) > 150) {
-      window.requestAnimationFrame(() => {
+    // 1️⃣ **APSOLUTNO eliminiranje bljeskova**
+    if (Math.abs(currentScrollY - lastScrollY) > 100) {
+      requestAnimationFrame(() => {
         window.scrollTo({
           top: lastStableScrollY,
-          behavior: 'instant', // Sprječava bljeskanje
+          behavior: 'instant', // Ključ za sprječavanje treptanja/bljeskova
         });
       });
       isJumpingPrevented = true;
-      return; // Prekini funkciju, ne izvršavaj donji kod
+      return;
     } else {
       isJumpingPrevented = false;
       lastStableScrollY = currentScrollY; // Ako je scroll stabilan, ažuriraj stabilnu poziciju
     }
 
-    // 2️⃣ **Dopuštanje normalnog skrolanja do kraja**
+    // 2️⃣ **Osiguranje normalnog skrolanja do kraja stranice**
     if (documentHeight - (currentScrollY + windowHeight) < buffer) {
       if (!isNearBottom) {
         isNearBottom = true;
-        lastScrollY = currentScrollY; // Zaključaj trenutni scroll
+        lastScrollY = currentScrollY;
       }
     } else {
-      isNearBottom = false; // Ako nismo blizu dna, resetiraj zaključavanje
+      isNearBottom = false;
     }
 
-    // 3️⃣ **Ako korisnik nastavi normalno skrolati prema dolje → dopusti skrolanje do kraja**
+    // 3️⃣ **Dopušta normalan scroll ako korisnik želi do kraja**
     if (isNearBottom && currentScrollY > lastScrollY) {
       isNearBottom = false;
     }
 
-    lastScrollY = currentScrollY; // Ažuriraj zadnju stabilnu poziciju
+    lastScrollY = currentScrollY;
   }
+
+  // 4️⃣ **Dodatno osiguranje da browser ne prisiljava skok**
+  setInterval(() => {
+    if (isJumpingPrevented) {
+      window.scrollTo({ top: lastStableScrollY, behavior: 'instant' });
+    }
+  }, 5); // Svakih 5ms provjeri i resetiraj ako treba
 
   window.addEventListener('scroll', preventJumping);
 });

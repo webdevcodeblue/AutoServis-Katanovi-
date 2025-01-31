@@ -152,9 +152,8 @@
         });
 
       //counting offset
-      var offsetTopAdd = $('.page_header').outerHeight() || 10;
-      var offsetBottomAdd = $('.page_footer').outerHeight(true) / 2 || 150;
-
+      var offsetTopAdd = 10;
+      var offsetBottomAdd = 150;
       var offsetTop = $affixAside.offset().top - $('.page_header').height();
       //note that page_footer and page_copyright sections must exists - else this will cause error in last jQuery versions
       var offsetBottom =
@@ -163,8 +162,12 @@
 
       $affixAside.affix({
         offset: {
-          top: offsetTop - offsetTopAdd,
-          bottom: offsetBottom + offsetBottomAdd,
+          top: function () {
+            return $('.page_header').outerHeight() + 20; // Dinamično računanje gornjeg offseta
+          },
+          bottom: function () {
+            return $('.page_footer').outerHeight(true) / 2 + 100; // Dinamično računanje donjeg offseta
+          },
         },
       });
 

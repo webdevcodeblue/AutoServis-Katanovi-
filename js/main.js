@@ -162,12 +162,8 @@
 
       $affixAside.affix({
         offset: {
-          top: function () {
-            return $('.page_header').outerHeight() + 20; // Dinamično računanje gornjeg offseta
-          },
-          bottom: function () {
-            return $('.page_footer').outerHeight(true) / 2 + 100; // Dinamično računanje donjeg offseta
-          },
+          top: offsetTop - offsetTopAdd,
+          bottom: offsetBottom + offsetBottomAdd,
         },
       });
 
@@ -201,10 +197,10 @@
         $affixAside.data('bs.affix').options.offset.bottom =
           offsetBottom + offsetBottomAdd;
 
-        $affixAside.affix('checkPosition');
+        //$affixAside.affix('checkPosition');
       });
 
-      $affixAside.affix('checkPosition');
+      //$affixAside.affix('checkPosition');
     } //eof checking of affix sidebar existing
   }
 

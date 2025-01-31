@@ -1588,34 +1588,34 @@
 
     <!-- Google Map Script -->
     <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        let oNamaLink = document.querySelector('#o-nama-link'); // Link "O nama"
-        let oNamaSection = document.querySelector('#o-nama'); // Sekcija "O nama"
-        let header = document.querySelector('header'); // Header za offset
+            document.addEventListener('DOMContentLoaded', function () {
+              let oNamaLink = document.querySelector('#o-nama-link'); // Link "O nama"
+              let oNamaSection = document.querySelector('#o-nama'); // Sekcija "O nama"
+              let header = document.querySelector('header'); // Header za offset
 
-        function scrollToONama() {
-          if (oNamaSection) {
-            let offset = header ? header.offsetHeight + 20 : 80; // Automatski uzima visinu headera + mali dodatni prostor
-            window.scrollTo({
-              top: oNamaSection.offsetTop - offset,
-              behavior: 'smooth',
-            });
-          }
-        }
+              function scrollToONama() {
+                if (oNamaSection) {
+                  let offset = header ? header.offsetHeight + 20 : 80; // Automatski uzima visinu headera + mali dodatni prostor
+                  window.scrollTo({
+                    top: oNamaSection.offsetTop - offset,
+                    behavior: 'smooth',
+                  });
+                }
+              }
 
-        // Klik na "O nama"
-        if (oNamaLink) {
-          oNamaLink.addEventListener('click', function (event) {
-            event.preventDefault(); // Sprječava default skok stranice
-            scrollToONama();
-          });
-        }
+              // Klik na "O nama"
+              if (oNamaLink) {
+                oNamaLink.addEventListener('click', function (event) {
+                  event.preventDefault(); // Sprječava default skok stranice
+                  scrollToONama();
+                });
+              }
 
-        // Ako dolaziš s druge stranice (index.html#o-nama)
-        if (window.location.hash === '#o-nama') {
-          setTimeout(scrollToONama, 300); // Pauza od 300ms da se stranica učita prije skrolanja
-        }
-      });
+          // Ako dolaziš s druge stranice (index.html#o-nama), spriječi skakanje
+      if (window.location.hash === '#o-nama') {
+        window.scrollTo(0, 0); // Spriječi automatsko skakanje na početku
+        setTimeout(scrollToONama, 300); // Nakon 300ms pokreni glatko skrolanje
+      }
     </script>
   </body>
 </html>

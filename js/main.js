@@ -117,10 +117,6 @@
 
   //NOTE: affixed sidebar works bad with side headers
   function initAffixSidebar() {
-    if ($(window).width() < 991) {
-      return; // Ne pokreći affix na malim ekranima
-    }
-
     var $affixAside = $('.affix-aside');
     if ($affixAside.length) {
       $window = $(window);

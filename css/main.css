@@ -22548,12 +22548,3 @@ a[class*='fa-'].fa-paper-plane:hover {
   transform: translateZ(0);
   will-change: transform, opacity;
 }
-
-.page_header.scrolled {
-  transform: translateY(0);
-}
-
-.page_header.hidden {
-  transform: translateY(-100%);
-  opacity: 0;
-}

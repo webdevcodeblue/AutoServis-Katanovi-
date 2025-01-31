@@ -1968,56 +1968,15 @@
 
 // treperenje
 document.addEventListener('DOMContentLoaded', function () {
-  let navbar = document.querySelector('.page_header');
-  let lastScrollY = window.scrollY;
-  let isSticky = false;
-  let isHidden = false;
-
-  function handleNavbar() {
-    if (!navbar) return;
-
-    if (window.innerWidth < 991) {
-      if (window.scrollY > lastScrollY && window.scrollY > 50) {
-        // Skrola prema dolje → sakrij navbar
-        if (!isHidden) {
-          navbar.classList.add('hidden');
-          isHidden = true;
-        }
-      } else {
-        // Skrola prema gore → prikaži navbar
-        if (isHidden) {
-          navbar.classList.remove('hidden');
-          isHidden = false;
-        }
-      }
-
-      if (window.scrollY > 50) {
-        // Kad skrola više od 50px → navbar postaje sticky
-        if (!isSticky) {
-          navbar.classList.add('scrolled');
-          navbar.style.position = 'fixed';
-          isSticky = true;
-        }
-      } else {
-        // Kad se vrati na vrh → navbar prestaje biti sticky
-        if (isSticky) {
-          navbar.classList.remove('scrolled');
-          navbar.style.position = 'absolute';
-          isSticky = false;
-        }
-      }
-    } else {
-      // Ako je ekran veći od 991px → resetiraj navbar
-      navbar.style.position = 'static';
-      navbar.classList.remove('scrolled', 'hidden');
-      isSticky = false;
-      isHidden = false;
-    }
-
-    lastScrollY = window.scrollY;
+  function setRealVH() {
+    document.documentElement.style.setProperty(
+      '--real-vh',
+      `${window.innerHeight * 0.01}px`
+    );
   }
 
-  window.addEventListener('scroll', handleNavbar);
+  setRealVH();
+  window.addEventListener('resize', setRealVH);
 });
 
 //jos koda

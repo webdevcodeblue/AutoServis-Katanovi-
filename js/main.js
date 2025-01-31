@@ -2081,3 +2081,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
   window.addEventListener('scroll', preventJumping);
 });
+
+// eliminacija flickera/bljeskanja
+window.addEventListener('scroll', function () {
+  document.documentElement.style.willChange = 'scroll-position';
+  document.documentElement.style.backfaceVisibility = 'hidden';
+  document.documentElement.style.transform = 'translateZ(0)';
+
+  clearTimeout(window.removeFlicker);
+  window.removeFlicker = setTimeout(() => {
+    document.documentElement.style.willChange = 'auto';
+    document.documentElement.style.backfaceVisibility = 'visible';
+    document.documentElement.style.transform = 'none';
+  }, 50);
+});

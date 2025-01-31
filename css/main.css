@@ -22536,3 +22536,15 @@ a[class*='fa-'].fa-paper-plane:hover {
   padding: 4px 0px;
 }
 /*navbar treptanje problem */
+.page_header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  z-index: 9999;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}

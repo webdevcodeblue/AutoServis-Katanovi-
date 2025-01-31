@@ -2011,28 +2011,28 @@ document.addEventListener('DOMContentLoaded', function () {
 // skakanje
 document.addEventListener('DOMContentLoaded', function () {
   let lastScrollY = window.scrollY;
+  let isScrollingLocked = false;
   let isNearBottom = false;
-  let isPreventingJump = false;
-  let buffer = 150; // Prag blizu dna
+  const buffer = 100; // Prilagodljivo - osjetljivost pri dnu
 
   function preventJumping() {
     let currentScrollY = window.scrollY;
     let windowHeight = window.innerHeight;
     let documentHeight = document.body.scrollHeight;
 
-    // ✅ **1️⃣ Sprječava nagle skokove bez bljeska**
-    if (!isPreventingJump && Math.abs(currentScrollY - lastScrollY) > 50) {
-      isPreventingJump = true;
-      document.body.classList.add('scroll-lock'); // Sprječava flicker
+    // ✅ **1️⃣ Sprječava skokove bez vizualnih anomalija**
+    if (!isScrollingLocked && Math.abs(currentScrollY - lastScrollY) > 50) {
+      isScrollingLocked = true;
+      document.documentElement.style.scrollBehavior = 'auto'; // Isključuje smooth scroll da ne izazove flicker
       window.scrollTo(0, lastScrollY);
       setTimeout(() => {
-        isPreventingJump = false;
-        document.body.classList.remove('scroll-lock'); // Omogućava normalan scroll
-      }, 100);
+        isScrollingLocked = false;
+        document.documentElement.style.scrollBehavior = 'smooth'; // Vraća smooth scroll
+      }, 50);
       return;
     }
 
-    // ✅ **2️⃣ Omogućava glatko skrolanje do kraja**
+    // ✅ **2️⃣ Omogućava normalno skrolanje do kraja**
     if (documentHeight - (currentScrollY + windowHeight) < buffer) {
       isNearBottom = true;
     } else {
@@ -2042,7 +2042,7 @@ document.addEventListener('DOMContentLoaded', function () {
     lastScrollY = currentScrollY;
   }
 
-  // ✅ **3️⃣ Detektira promjene u DOM-u i osigurava da ne izazovu skokove**
+  // ✅ **3️⃣ Detektira promjene u DOM-u i automatski prilagođava visinu**
   const observer = new MutationObserver(() => {
     setTimeout(() => {
       let windowHeight = window.innerHeight;
@@ -2055,6 +2055,29 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   observer.observe(document.body, { childList: true, subtree: true });
+
+  // ✅ **4️⃣ Koristimo Intersection Observer da bismo detektirali problematične sekcije**
+  const observerOptions = {
+    root: null,
+    threshold: 0.1,
+  };
+
+  const observerCallback = (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        isNearBottom = true;
+      }
+    });
+  };
+
+  const footerObserver = new IntersectionObserver(
+    observerCallback,
+    observerOptions
+  );
+  const footer = document.querySelector('.page_copyright');
+  if (footer) {
+    footerObserver.observe(footer);
+  }
 
   window.addEventListener('scroll', preventJumping);
 });

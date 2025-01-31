@@ -200,7 +200,7 @@
         $affixAside.affix('checkPosition');
       });
 
-      $affixAside.affix('checkPosition');
+      //$affixAside.affix('checkPosition');
     } //eof checking of affix sidebar existing
   }
 

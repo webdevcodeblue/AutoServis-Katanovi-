@@ -1967,16 +1967,42 @@
 })(jQuery);
 
 // treperenje
+
 document.addEventListener('DOMContentLoaded', function () {
-  function setRealVH() {
-    document.documentElement.style.setProperty(
-      '--real-vh',
-      `${window.innerHeight * 0.01}px`
-    );
+  let navbar = document.querySelector('.page_header');
+  let lastScrollY = window.scrollY;
+  let isSticky = false;
+
+  function handleNavbar() {
+    if (!navbar) return;
+
+    if (window.innerWidth < 991) {
+      if (window.scrollY > 50) {
+        // Kad skrola više od 50px → navbar postaje sticky
+        if (!isSticky) {
+          navbar.classList.add('scrolled');
+          navbar.style.position = 'fixed';
+          isSticky = true;
+        }
+      } else {
+        // Kad se vrati na vrh → navbar prestaje biti sticky
+        if (isSticky) {
+          navbar.classList.remove('scrolled');
+          navbar.style.position = 'absolute';
+          isSticky = false;
+        }
+      }
+    } else {
+      // Ako je ekran veći od 991px → resetiraj navbar
+      navbar.style.position = 'static';
+      navbar.classList.remove('scrolled');
+      isSticky = false;
+    }
+
+    lastScrollY = window.scrollY;
   }
 
-  setRealVH();
-  window.addEventListener('resize', setRealVH);
+  window.addEventListener('scroll', handleNavbar);
 });
 
 //kraj treperenja

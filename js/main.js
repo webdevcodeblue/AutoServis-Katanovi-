@@ -2009,3 +2009,48 @@ document.addEventListener('DOMContentLoaded', function () {
 
 //******************************************
 // skakanje
+document.addEventListener('DOMContentLoaded', function () {
+  let lastScrollY = window.scrollY;
+  let isNearBottom = false;
+  let isPreventingJump = false;
+
+  function preventJumping() {
+    let currentScrollY = window.scrollY;
+    let windowHeight = window.innerHeight;
+    let documentHeight = document.body.scrollHeight;
+    let buffer = 150; // Prag blizu dna
+
+    // 1️⃣ **Sprječava nagle skokove**
+    if (!isPreventingJump && Math.abs(currentScrollY - lastScrollY) > 50) {
+      isPreventingJump = true;
+      window.scrollTo(0, lastScrollY);
+      setTimeout(() => (isPreventingJump = false), 100); // Resetira nakon kratke pauze
+      return;
+    }
+
+    // 2️⃣ **Omogućava glatko skrolanje do kraja**
+    if (documentHeight - (currentScrollY + windowHeight) < buffer) {
+      isNearBottom = true;
+    } else {
+      isNearBottom = false;
+    }
+
+    lastScrollY = currentScrollY;
+  }
+
+  // 3️⃣ **Detektira promjene u DOM-u koje mogu izazvati skokove**
+  const observer = new MutationObserver(() => {
+    setTimeout(() => {
+      let windowHeight = window.innerHeight;
+      let documentHeight = document.body.scrollHeight;
+
+      if (documentHeight < windowHeight) {
+        document.body.style.minHeight = windowHeight + 'px';
+      }
+    }, 100);
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+
+  window.addEventListener('scroll', preventJumping);
+});

@@ -2016,17 +2016,21 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentScrollY = window.scrollY;
     let windowHeight = window.innerHeight;
     let documentHeight = document.body.scrollHeight;
-    let buffer = 100; // Podešavanje osjetljivosti pri dnu
+    let buffer = 100; // Prag kada aktivirati zaštitu
 
-    // Ako smo jako blizu dna i naglo se detektira skok
+    // Ako smo pri dnu stranice (ali ne potpuno)
     if (documentHeight - (currentScrollY + windowHeight) < buffer) {
       if (!isNearBottom) {
         isNearBottom = true;
         lastScrollY = currentScrollY; // Zaključaj trenutni scroll
       }
-      window.scrollTo(0, lastScrollY); // Drži korisnika na mjestu
     } else {
       isNearBottom = false; // Ako nismo blizu dna, resetiraj zaključavanje
+    }
+
+    // Dopusti skrolanje do kraja ako korisnik skrola prema dolje
+    if (isNearBottom && currentScrollY > lastScrollY) {
+      isNearBottom = false; // Omogući normalno skrolanje do kraja
     }
   }
 

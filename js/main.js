@@ -2008,3 +2008,27 @@ document.addEventListener('DOMContentLoaded', function () {
 //kraj treperenja
 
 // skakanje
+document.addEventListener('DOMContentLoaded', function () {
+  let lastScrollY = window.scrollY;
+  let isNearBottom = false;
+
+  function preventJumping() {
+    let currentScrollY = window.scrollY;
+    let windowHeight = window.innerHeight;
+    let documentHeight = document.body.scrollHeight;
+    let buffer = 100; // Podešavanje osjetljivosti pri dnu
+
+    // Ako smo jako blizu dna i naglo se detektira skok
+    if (documentHeight - (currentScrollY + windowHeight) < buffer) {
+      if (!isNearBottom) {
+        isNearBottom = true;
+        lastScrollY = currentScrollY; // Zaključaj trenutni scroll
+      }
+      window.scrollTo(0, lastScrollY); // Drži korisnika na mjestu
+    } else {
+      isNearBottom = false; // Ako nismo blizu dna, resetiraj zaključavanje
+    }
+  }
+
+  window.addEventListener('scroll', preventJumping);
+});

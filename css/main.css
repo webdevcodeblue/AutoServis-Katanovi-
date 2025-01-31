@@ -22542,11 +22542,3 @@ a[class*='fa-'].fa-paper-plane:hover {
 /* Poboljšava prikaz menija */
 
 /*kraj treperenja*/
-#partners {
-  display: none !important;
-}
-
-html,
-body {
-  overflow-x: hidden;
-}

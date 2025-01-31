@@ -117,6 +117,10 @@
 
   //NOTE: affixed sidebar works bad with side headers
   function initAffixSidebar() {
+    if ($(window).width() < 991) {
+      return; // Ne pokreći affix na malim ekranima
+    }
+
     var $affixAside = $('.affix-aside');
     if ($affixAside.length) {
       $window = $(window);
@@ -153,7 +157,7 @@
 
       //counting offset
       var offsetTopAdd = 10;
-      var offsetBottomAdd = 50;
+      var offsetBottomAdd = 150;
       var offsetTop = $affixAside.offset().top - $('.page_header').height();
       //note that page_footer and page_copyright sections must exists - else this will cause error in last jQuery versions
       var offsetBottom =

@@ -10,6 +10,10 @@ html {
   position: relative;
   width: 100%;
 }
+html {
+  scroll-behavior: auto !important;
+}
+
 ::-moz-selection {
   background-color: #ff4e3c;
   color: #fff;
@@ -22538,8 +22542,6 @@ a[class*='fa-'].fa-paper-plane:hover {
 /*navbar treptanje problem */
 /* Omogućava da se navigacija proširi ispod fiksnog navbar-a */
 
-
 /* Poboljšava prikaz menija */
-
 
 /*kraj treperenja*/

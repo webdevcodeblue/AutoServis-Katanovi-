@@ -2012,6 +2012,7 @@ document.addEventListener('DOMContentLoaded', function () {
   let lastScrollY = window.scrollY;
   let isNearBottom = false;
   let isJumpingPrevented = false;
+  let lastStableScrollY = window.scrollY;
 
   function preventJumping() {
     let currentScrollY = window.scrollY;
@@ -2019,13 +2020,19 @@ document.addEventListener('DOMContentLoaded', function () {
     let documentHeight = document.body.scrollHeight;
     let buffer = 100; // Prag kada aktivirati zaštitu
 
-    // 1️⃣ **Sprječavanje skokova** (ako se detektira naglo pomicanje)
+    // 1️⃣ **Sprječavanje skokova (ali BEZ bljeskanja)**
     if (Math.abs(currentScrollY - lastScrollY) > 150) {
-      window.scrollTo(0, lastScrollY); // Vrati na zadnju stabilnu poziciju
+      window.requestAnimationFrame(() => {
+        window.scrollTo({
+          top: lastStableScrollY,
+          behavior: 'instant', // Sprječava bljeskanje
+        });
+      });
       isJumpingPrevented = true;
       return; // Prekini funkciju, ne izvršavaj donji kod
     } else {
       isJumpingPrevented = false;
+      lastStableScrollY = currentScrollY; // Ako je scroll stabilan, ažuriraj stabilnu poziciju
     }
 
     // 2️⃣ **Dopuštanje normalnog skrolanja do kraja**
